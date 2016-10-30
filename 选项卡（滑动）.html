@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选项卡划</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            background: #ddd;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #container ul{
+            height: 30px;
+        }
+        #container #c1 li{
+            float: left;
+            width: 120px;
+            height: 30px;
+            background: #ccc;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #container #c1 .s1{
+            background: #000;
+            color: #fff;
+        }
+        #content{
+            width: 1200px;
+            height: 270px;
+            background: #cccccc;
+            position: absolute;
+            left: 0;
+            top: 30px;
+        }
+        #content div{
+            width: 400px;
+            height: 270px;
+            background: #cccccc;
+            float: left;
+
+        }
+    </style>
+</head>
+    <body>
+        <div id="container">
+            <ul id="c1">
+                <li class="s1">111</li>
+                <li>222</li>
+                <li>333</li>
+            </ul>
+            <div id="content">
+                <div>qqqq</div>
+                <div>rrrr</div>
+                <div>eeeeeee</div>
+            </div>
+        </div>
+    </body>
+<script src="练习/jslib.js"></script>
+<script>
+    var oContainer = document.getElementById("c1");
+    var aLi = oContainer.getElementsByTagName("li");
+    var oContent = document.getElementById("content");
+    var aDiv = oContent.getElementsByTagName("div");
+    for(var i=0; i<aLi.length; i++){
+            aLi[i].index = i;
+        aLi[i].onclick = function(){
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].className = "";
+            }
+            this.className = "s1";
+            var o1 = -aDiv[0].offsetWidth*this.index;
+            animate(oContent, {left: o1});
+        };
+    }
+</script>
+</html>
