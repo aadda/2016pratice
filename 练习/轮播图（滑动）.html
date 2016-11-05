@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图（滑动）</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 280px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width: 1600px;
+            height: 180px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #content img{
+            width: 400px;
+            height: 180px;
+            float: left;
+        }
+        /*#tab{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }*/
+        #tab div{
+            float: left;
+            width: 100px;
+            height: 30px;
+            background: #fff;
+            color: #404040;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            font-family: Microsoft YaHei,Tahoma,simsun;
+            /*margin-right: 5px;*/
+            margin-top: 180px;
+        }
+        #tab div.s2{
+            background: #00FFcc;
+        }
+        #arrow{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        #container span{
+            float: left;
+            height: 50px;
+            width: 50px;
+            margin: auto;
+            text-align: center;
+            line-height: 50px;
+            font-size: 55px;
+            /*background: #000;
+            color: #fff;*/
+            opacity: 0;
+            /*margin-right: 50px;*/
+        }
+        #container #prev{
+            position: absolute;
+            left: 0;
+            top: 75px;
+        }
+        #container #next{
+            position: absolute;
+            left:350px;
+            top: 75px;
+        }
+        #container span:hover{
+            /*background: #fff;*/
+            color: #000;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        <img class="s1" src="img/t1.jpg" alt=""/>
+        <img src="img/t2.jpg" alt=""/>
+        <img src="img/t3.jpg" alt=""/>
+        <img src="img/t4.jpg" alt=""/>
+    </div>
+    <div id="tab">
+        <div class="s2">小黄鸭</div>
+        <div>源计划</div>
+        <div>LPL赛事</div>
+        <div>英雄讲堂</div>
+    </div>
+
+    <span id="prev">&lt;</span>
+    <span id="next">&gt;</span>
+
+</div>
+</body>
+<script src="../jslib.js"></script>
+<script>
+    var oContainer = document.getElementById("container");
+    var oContent = document.getElementById("content");
+    var aImg = oContent.getElementsByTagName("img");
+    var oTab = document.getElementById("tab");
+    var aLi = oTab.getElementsByTagName("div");
+    /*var oArrow = document.getElementById("arrow");
+     var aSpan = oArrow.getElementsByTagName("span");*/
+    var oNext = document.getElementById("next");
+    var oPrev = document.getElementById("prev");
+    var iNow = 0;
+    for(var i=0; i<aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            changeImg(this.index);
+            iNow = this.index;
+        };
+    }
+    oNext.onclick = function(){
+        iNow++;
+        if(iNow == aLi.length){
+            iNow = 0;
+        }
+        changeImg(iNow);
+    };
+    oPrev.onclick = function(){
+        iNow--;
+        if(iNow == -1){
+            iNow = aImg.length - 1;
+        }
+        changeImg(iNow);
+    };
+    function changeImg(a){
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].className = "";
+           /* aImg[i].className = "";*/
+        }
+        aLi[a].className = "s2";
+        animate(oContent, {left: -a*aImg[0].offsetWidth});
+        /*aImg[a].className = "s1";*/
+    }
+    var timer;
+    timer = setInterval(function(){
+        oNext.onclick();
+    },2000);
+    oContainer.onmouseover = function(){
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function(){
+        timer = setInterval(function(){
+            oNext.onclick();
+        },2000);
+    };
+</script>
+</html>

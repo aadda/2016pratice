@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>广告</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            float: left;
+        }
+        #ground{
+            width: 1080px;
+            height: 150px;
+            /*border: solid 1px;*/
+            padding-top: 5px;
+            position: relative;
+            margin: 100px auto;
+            /*background: #000000;*/
+            /*overflow: hidden;*/
+        }
+        #father{
+            position: absolute;
+            left: 0;
+            /*top: 5px;*/
+        }
+        #father #div1{
+            width: 170px;
+            height: 138px;
+            float: left;
+            padding: 0;
+            /*line-height: 150px;*/
+        }
+        #father #div2{
+             float: left;
+            width: 740px;
+            height: 140px;
+            opacity: 0;
+         }
+        #mother{
+            position: absolute;
+            left: 170px;
+            /*top: 5px;*/
+        }
+        #mother #div3{
+            width: 170px;
+            height: 140px;
+            float: left;
+        }
+        #mother #div4{
+            float: left;
+            width: 740px;
+            height: 140px;
+            opacity: 0;
+        }
+    </style>
+</head>
+    <body>
+        <div id="ground">
+            <div id="father">
+                <div id="div1">
+                    <img src="img1/01.png" alt=""/>
+                    <img src="img1/02.png" alt=""/>
+                </div>
+                <div id="div2">
+                    <img src="img1/03.png" alt=""/>
+                </div>
+            </div>
+            <div id="mother">
+                <div id="div3">
+                    <img src="img1/11.png" alt=""/>
+                    <img src="img1/12.png" alt=""/>
+                </div>
+                <div id="div4">
+                    <img src="img1/13.png" alt=""/>
+                </div>
+            </div>
+        </div>
+    </body>
+<script>
+    var oDiv1 = document.getElementById("div1");
+    var oDiv2 = document.getElementById("div2");
+    var oMother = document.getElementById("mother");
+    /*var aImg = oDiv1.getElementsByTagName("img");*/
+    /*for(var i=0; i<aImg.length; i++){*/
+        oDiv1.onmouseover = function(){
+            oMother.style.left = 910 + "px";
+            oDiv2.style.opacity = 1;
+            /*alert("ssss");*/
+        };
+        oDiv1.onmouseout = function(){
+            oMother.style.left = 170 + "px";
+            oDiv2.style.opacity = 0;
+            /*alert("ssss");*/
+        };
+    /*}*/
+    var oDiv3 = document.getElementById("div3");
+    var oDiv4 = document.getElementById("div4");
+    /*var oFather = document.getElementById("father");*/
+        oDiv3.onmouseover = function(){
+            oMother.style.left = 170 + "px";
+            oDiv4.style.opacity = 1;
+            /*alert("ssss");*/
+        };
+        oDiv3.onmouseout = function(){
+            oMother.style.left = 170 + "px";
+            oDiv4.style.opacity = 0;
+            /*alert("ssss");*/
+        };
+</script>
+</html>
