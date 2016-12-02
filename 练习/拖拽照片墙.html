@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>照片墙拖拽</title>
+    <style>
+        #container{
+            width: 966px;
+            margin: 0 auto;
+        }
+        #container img{
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+            float: left;
+        }
+        #container img.collide1{
+            border: 1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="img1/1.jpg" alt=""/>
+        <img src="img1/2.jpg" alt=""/>
+        <img src="img1/3.jpg" alt=""/>
+        <img src="img1/4.jpg" alt=""/>
+        <img src="img1/5.jpg" alt=""/>
+        <img src="img1/6.jpg" alt=""/>
+        <img src="img1/7.jpg" alt=""/>
+        <img src="img1/8.jpg" alt=""/>
+        <img src="img1/9.jpg" alt=""/>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+        var oContainer = document.getElementById("container");
+        var aImg = oContainer.getElementsByTagName("img");
+        var zIndex = 0;
+        var nearElem = null;
+        for(var i=0; i<aImg.length; i++){
+            aImg[i].style.left = aImg[i].offsetLeft + "px";
+            aImg[i].style.top = aImg[i].offsetTop + "px";
+        }
+        for(var i=0; i<aImg.length; i++){
+            aImg[i].style.position = "absolute";
+            aImg[i].style.margin = 0;
+            drag(aImg[i]);
+            aImg[i].pos = {
+                left: aImg[i].offsetLeft,
+                top: aImg[i].offsetTop
+            }
+        }
+        function drag(elem){
+            elem.onmousedown = function(e){
+                e = e || window.event;
+                var iX = e.clientX - elem.offsetLeft;
+                var iY = e.clientY - elem.offsetTop;
+                document.onmousemove = function(e){
+                    e = e || window.event;
+                    var iLeft = e.clientX - iX;
+                    var iTop = e.clientY - iY;
+                    elem.style.left = iLeft +"px";
+                    elem.style.top = iTop +"px";
+                    elem.style.zIndex = zIndex++;
+                    collide = [];
+                    for(var i=0; i<aImg.length; i++){
+                        if(aImg[i] == elem){
+                            continue;
+                        }
+                        var isCol = checkCollide(elem,aImg[i]);
+                        if(isCol){
+                            collide.push(aImg[i]);
+                        }
+                        aImg[i].className = "";
+                    }
+                    if(collide.length > 0){
+                        nearElem = nearest(elem);
+                        nearElem.className = "collide1";
+                    }else{
+                        nearElem = null;
+                    }
+                    return false;
+                };
+                /*var A = elem.offsetLeft;
+                var B = elem.offsetTop;*/
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                    /*elem.style.left = nearElem.offsetLeft + "px";
+                    elem.style.top = nearElem.offsetTop + "px";
+                    nearElem.style.left = A +"px";
+                    nearElem.style.top = B +"px";
+                    for(var i=0; i<aImg.length; i++){
+                        aImg[i].className = "";
+                    }*/
+                    if(nearElem){
+                        animate(elem,nearElem.pos);
+                        animate(nearElem,elem.pos);
+                        var pos = nearElem.pos;
+                        nearElem.pos = elem.pos;
+                        elem.pos = pos;
+                        nearElem.className = "";
+                        nearElem = null;
+                    }else{
+                        animate(elem,elem.pos);
+                    }
+                }
+            }
+        }
+        document.onselectstart = function(){
+            return false;
+        };
+        function checkCollide(elem,target){
+            var elemL = elem.offsetLeft,
+                    elemR = elem.offsetLeft + elem.offsetWidth,
+                    elemT = elem.offsetTop,
+                    elemB = elem.offsetTop + elem.offsetHeight;
+            var targetL = target.offsetLeft,
+                    targetR = target.offsetLeft + target.offsetWidth,
+                    targetT = target.offsetTop,
+                    targetB = target.offsetTop + target.offsetHeight;
+            if(elemL > targetR || elemR < targetL || elemT > targetB || elemB < targetT){
+                return false;
+            }else{
+                return true;
+            }
+        }
+        function nearest(elem){
+            var near1 = 99999;
+            var index = -1;
+            for(var i=0; i<collide.length; i++){
+                var X = elem.offsetLeft - collide[i].offsetLeft;
+                var Y = elem.offsetTop - collide[i].offsetTop;
+                var near = Math.sqrt(X*X+Y*Y);
+                if(near < near1){
+                    near1 = near;
+                    index = i;
+                }
+            }
+            return collide[index];
+        }
+    </script>
+</body>
+</html>

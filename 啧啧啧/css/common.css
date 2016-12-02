@@ -1,0 +1,511 @@
+*{
+    margin: 0;
+    padding: 0;
+    font: normal 12px/1.6em Microsoft YaHei,Tahoma,simsun;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/*#father{
+    width: 100%;
+    height: 100%;
+}
+#fa{
+    margin: 0 auto;
+}*/
+#header-top{
+    height: 80px;
+    width: 100%;
+    background: #000;
+}
+#header1{
+    width: 1240px;
+    height: 80px;
+   /* background: #00FFcc;*/
+    margin: 0 auto;
+    position: absolute;
+    left: 288px;
+}
+#header1 .main-menu li{
+    width: 144px;
+    height: 80px;
+    /*background: red;*/
+    float: left;
+    text-align: center;
+    margin-right: 30px;
+    text-transform: uppercase;
+}
+#header1 .main-menu a{
+    width: 144px;
+    font-size: 16px;
+    display: block;
+    padding-top: 20px;
+    text-align: center;
+    color: #e1e1e1;
+}
+#header1 .main-menu span{
+    text-align: center;
+    width: 144px;
+    font-size: 10px;
+}
+#tab1{
+    width: 100%;
+    height: 235px;
+    background: #000;
+    opacity: 0.66;
+    filter: alpha(opacity = 66);
+    display: none;
+    position: absolute;
+    top: 80px;
+}
+.header2{
+    width: 1240px;
+    height: 165px;
+    /* background: #00FFcc;*/
+    margin: 0 auto;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    position: absolute;
+    left: 288px;
+}
+.header2 .main-menu li{
+    width: 144px;
+    height: 165px;
+    /*background: red;*/
+    float: left;
+    text-align: center;
+    margin-right: 30px;
+    text-transform: uppercase;
+}
+.header2 .main-menu a{
+    width: 144px;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    color: #e1e1e1;
+}
+.header2 .main-menu a:hover{
+    color: #00FFcc;
+}
+#back{
+    width: 100%;
+    height: 614px;
+    background: url(../sss/zzz.jpg) no-repeat;
+}
+#back1 .logo{
+    position: absolute;
+    left: 54px;
+    top: 0;
+    width: 230px;
+    height: 130px;
+    background: url(../sss/public-spr.png) no-repeat 0 -166px;
+    z-index: 4;
+}
+#back2 #bat{
+    color: #00ab88;
+    height: 50px;
+    line-height: 50px;
+    font-size: 50px;
+    position: absolute;
+    left: 54px;
+    top: 230px;
+}
+#back2 #bat1{
+    color: #fff;
+    width: 500px;
+    height: 48px;
+    font-size: 14px;
+    position: absolute;
+    left: 54px;
+    top: 290px;
+}
+#back3{
+    width: 222px;
+    height: 120px;
+    background: url(../sss/1.png) no-repeat;
+    position: absolute;
+    left: 54px;
+    top: 340px;
+}
+#back4{
+    width: 159px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #000;
+    border: solid 2px #00FFcc;
+    color: #00FFcc;
+    font-size: 16px;
+    position: absolute;
+    left: 54px;
+    top: 480px;
+}
+#back5{
+    width: 261px;
+    height: 26px;
+    color: #eee;
+    position: absolute;
+    left: 1133px;
+    top: 540px;
+    text-align: center;
+    /*background: #000;*/
+}
+#back5 em{
+    color: #00FFcc;
+    margin-right: 10px;
+}
+#back5 a{
+    display: block;
+    float: right;
+    width: 80px;
+    height: 26px;
+    border: solid 2px #00FFcc;
+    color: #00FFcc;
+    background: #000;
+    text-align: center;
+    line-height: 26px;
+}
+#back6 #a1{
+    display: block;
+    width: 220px;
+    height: 115px;
+    background: url(../sss/public-spr.png) no-repeat 0 -472px;
+    position: absolute;
+    left: 54px;
+    top: 580px;
+}
+#back6 .a2{
+    display: block;
+    width: 112px;
+    height: 115px;
+    background: url(../sss/public-spr.png) no-repeat -220px -472px;
+    float: left;
+    position: relative;
+    left: 274px;
+    top: 500px;
+    text-transform: uppercase;
+    text-align: center;
+}
+#back6 #bac1{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../sss/2.png) no-repeat;
+    position: absolute;
+    left: 40px;
+    top: 20px;
+}
+#back6 #bac2{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../sss/3.png) no-repeat;
+    position: absolute;
+    left: 40px;
+    top: 20px;
+}
+#back6 #bac3{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../sss/4.png) no-repeat;
+    position: absolute;
+    left: 40px;
+    top: 20px;
+}
+#back6 #bac4{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../sss/5.png) no-repeat;
+    position: absolute;
+    left: 40px;
+    top: 20px;
+}
+#back6 #bac5{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../sss/6.png) no-repeat;
+    position: absolute;
+    left: 40px;
+    top: 20px;
+}
+#back6 .name{
+    display: block;
+    width: 112px;
+    height: 19px;
+    font-size: 16px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 45px;
+}
+#back6 .desc{
+    display: block;
+    width: 112px;
+    height: 19px;
+    font-size: 12px;
+    color: #5e677f;
+    position: absolute;
+    left: 0;
+    top: 64px;
+}
+#back7 #bac7{
+    width: 115px;
+    height: 115px;
+    background: url(../sss/public-spr.png) no-repeat -795px -472px;
+    position: absolute;
+    left: 834px;
+    top: 580px;
+}
+#back7 #bac7 img{
+    margin: 18px 18px;
+}
+#back7 #bac8{
+    width: 460px;
+    height: 155px;
+    background: url(../sss/public-spr.png) no-repeat -795px -472px;
+    position: absolute;
+    left: 949px;
+    top: 580px;
+}
+#back7 #bac8 #p1{
+    color: #fff;
+    width: 360px;
+    height: 22px;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+#back7 #bac8 #p1 a{
+    color: #00FFcc;
+    font-size: 16px;
+}
+#back7 #bac8 #p2{
+    margin-left: 60px;
+    margin-top: 10px;
+    width: 360px;
+    height: 38px;
+    color: #C1CFE8;
+    font-size: 12px;
+}
+#back7 #bac8 #p2 span{
+    color: #fff;
+}
+/**************播图开始**************************/
+#container{
+    width: 780px;
+    height: 330px;
+    margin-top: 30px;
+    margin-left: 52px;
+    position: relative;
+    overflow: hidden;
+}
+#container #content{
+    width: 3900px;
+    height: 330px;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+#container #content img{
+    width: 780px;
+    height: 330px;
+    float: left;
+}
+#tab {
+    width: 780px;
+    height: 40px;
+    margin-left: 52px;
+}
+#tab li{
+    width: 156px;
+    height: 40px;
+    float: left;
+    background: #eeeeee;
+    line-height: 40px;
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+}
+#tab .s2{
+    background: #36AB87;
+}
+#news{
+    width: 500px;
+    height: 330px;
+    /*background: red;*/
+    position: absolute;
+    left: 896px;
+    top: 725px;
+}
+#news #news1 li{
+    width: 100px;
+    height: 40px;
+    float: left;
+    color:  #666;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 21px;
+    border-bottom: 5px solid #eeeeee;
+    overflow: hidden;
+}
+#news #news1 .n1{
+    color: #00ab88;
+    border-bottom: 5px solid #00ab88;
+}
+#news div{
+    display: none;
+}
+#news .divs{
+    display: block;
+}
+#news .news2{
+    margin-top: 70px;
+}
+#news .news2 li{
+    width: 500px;
+    height: 26px;
+    padding: 3px 0;
+    color: #00ab88;
+    font-size: 21px;
+    text-align: center;
+    line-height: 26px;
+}
+#news .news2 .sp1{
+    position: absolute;
+    left: 0;
+    width: 46px;
+    height: 22px;
+    line-height: 22px;
+    background: #ebebeb;
+    border: 2px solid #ebebeb;
+    text-align: center;
+    color: #a4a4a4;
+    border-radius: 15px;
+}
+#news .news2 .sp2{
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 26px;
+    line-height: 26px;
+    text-align: right;
+    color: #a4a4a4;
+}
+#news .news2 a{
+    color: #000;
+}
+#news .news2 a:hover{
+    color: #00ab88;
+}
+#news #div1{
+     width: 500px;
+     height: 40px;
+     background: #ebebeb;
+     color: #a4a4a4;
+     text-align: center;
+     line-height: 40px;
+    cursor: pointer;
+    display: block;
+ }
+/**************播图end**************************/
+/**************video start**************************/
+#video{
+    width: 100%;
+    height: 520px;
+    /*background: #00FFcc;*/
+    margin: 60px auto;
+}
+#video #td{
+    width: 780px;
+    height: 40px;
+    /*background: red;*/
+    position: absolute;
+    left: 52px;
+}
+#video #td #td0{
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: url(../sss/public-spr.png) no-repeat -40px -40px;
+}
+#video #td h2{
+    float: left;
+    width: 145px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #555555;
+}
+#video #td a{
+    width: 109px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    margin-top: 5px;
+    margin-right: 30px;
+    font-size: 14px;
+    color: #777;
+    background: #efefef;
+    border-radius: 25px;
+    display: block;
+    float: right;
+    border: 3px solid #efefef;
+}
+#video #td a:hover{
+    color: #00ab88;
+    border: 3px solid #00ab88;
+}
+#video #v-type{
+    width: 780px;
+    height: 350px;
+    position: absolute;
+    left: 52px;
+    top: 1220px;
+}
+#video #v-type li{
+    width: 130px;
+    height: 40px;
+    float: left;
+    color:  #666;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 17px;
+    border-bottom: 5px solid #eeeeee;
+    overflow: hidden;
+}
+#video #v-type li.v1{
+    color: #00ab88;
+    border-bottom: 5px solid #00ab88;
+}
+#video #come a{
+    position: absolute;
+    left: 52px;
+    top: 1630px;
+    width: 780px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #dedddd;
+    color: #666;
+    font-size: 16px;
+}
+#video #come span{
+    color: #00ab88;
+}
+/**************video 省略**************************/
+#video #v-type #v-img img{
+    display: none;
+}
+#video #v-type #v-img img.v2{
+    display: block;
+}
+/**************video 结束**************************/

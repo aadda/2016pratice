@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font: normal 12px/1.6em Microsoft YaHei,Tahoma,simsun;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width: 520px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #content li{
+            width: 120px;
+            height: 120px;
+            background: #000;
+            color: #fff;
+            font-size: 32px;
+            float: left;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 120px;
+        }
+        #arrow{
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -105px;
+        }
+        #arrow span{
+            width: 100px;
+            height: 40px;
+            float: left;
+            background: #ccc;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrow">
+            <span id="tl">&lt;&lt;向左</span>
+            <span id="tr">向右&gt;&gt;</span>
+        </div>
+    </div>
+    <script>
+        var oContent = document.getElementById("content");
+        var oTl = document.getElementById("tl"),
+                oTr = document.getElementById("tr");
+        oContent.innerHTML = oContent.innerHTML + oContent.innerHTML;
+        var aLi = oContent.getElementsByTagName("li");
+        oContent.style.width = aLi.length * (aLi[0].offsetWidth +10) + "px";
+        var speed = -2;
+        setInterval(function(){
+            if(oContent.offsetLeft <= -oContent.offsetWidth/2){
+                oContent.style.left = 0;
+            }
+             if(oContent.offsetLeft > 0){
+                oContent.style.left = -oContent.offsetWidth/2  + "px";
+             }
+            oContent.style.left = oContent.offsetLeft + speed + "px";
+        },10);
+        oTr.onmouseover = function(){
+            speed = 2;
+        };
+        oTl.onmouseover = function(){
+            speed = -2;
+        };
+    </script>
+</body>
+</html>

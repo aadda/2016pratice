@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>网上银行用户界面</title>
+    <!--<link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/regist.css">-->
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            font: normal 12px/1.6em Microsoft YaHei,Tahoma,simsun;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        #header{
+            width: 100%;
+            height: 50px;
+            background: #eee;
+        }
+        #header #choose{
+            width: 1300px;
+            height: 50px;
+            margin: 0 auto;
+            background: #eeeeee;
+        }
+        #header .language{
+            width: 100px;
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+        }
+        #header #choose a:hover{
+            color: orange;
+        }
+        #header #choose p{
+            width: 100px;
+            height: 18px;
+            float: right;
+            text-align: center;
+            line-height: 18px;
+            margin-right: 100px;
+            margin-top: 16px;
+            background: url(qqq/1.png) no-repeat;
+        }
+        #logo{
+            width: 1300px;
+            height: 100px;
+            /*background: red;*/
+            margin: 0 auto;
+        }
+        #logo #l-left img{
+            width: 150px;
+            height: 100px;
+            float: left;
+        }
+        #logo #l-left h2{
+            float: left;
+            width: 300px;
+            height: 100px;
+            font-size: 42px;
+            text-align: center;
+            line-height: 100px;
+            color: #00ab88;
+        }
+        #logo #l-left #l-left1{
+            float: right;
+            margin-right: 100px;
+            font-size: 18px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            width: 300px;
+        }
+        #mid{
+            width: 1300px;
+            height: 400px;
+            margin: 30px auto;
+            /*background: red;*/
+            border-top: 3px solid #00ab88;
+        }
+        #mid h2{
+            width: 300px;
+            height: 70px;
+            line-height: 70px;
+            font-size: 20px;
+            color: #00ab88;
+            margin-left: 50px;
+        }
+        #mid #mid-l{
+            width: 400px;
+            height: 330px;
+            float: left;
+        }
+        #mid #mid-l .mid1{
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            margin-top: 30px;
+            margin-left: 50px;
+            /*background: #00FFcc;*/
+            /*text-align: center;*/
+            font-size: 15px;
+        }
+        #mid #mid-l .mid1 button{
+            width: 50px;
+            height: 30px;
+        }
+        #mid #mid-r{
+            width: 600px;
+            height: 330px;
+            float: left;
+            margin-top: 30px;
+            margin-left: 200px;
+        }
+        #mid #mid-r li{
+            width: 100px;
+            height: 50px;
+            float: left;
+            border: 2px solid #00FFcc;
+            margin-left: 15px;
+            text-align: center;
+            line-height: 50px;
+        }
+        /************footer开始************/
+        #footer{
+            height: 450px;
+            background: #202020;
+        }
+        #footer-top{
+            height: 280px;
+            width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid;
+        }
+        #footer-left{
+            width: 400px;
+            height: 276px;
+            float: left;
+            /*border-right: 1px solid;*/
+        }
+        #footer-left h2{
+            font-size: 20px;
+            color: gray;
+        }
+        #footer-left a{
+            font-size: 13px;
+            color: #fff;
+            width: 180px;
+            height: 30px;
+            display: block;
+            margin-top: 10px;
+        }
+        #footer-left1{
+            margin-top: 35px;
+            float: left;
+        }
+        #footer-left2{
+            margin-top: 35px;
+            float: right;
+        }
+        #footer-right{
+            width: 800px;
+            height: 267px;
+            float: right;
+            /*border-left: 1px solid; */
+        }
+        #footer-right li{
+            margin-top: 40px;
+            margin-left: 30px;
+            float: left;
+            width: 140px;
+            height: 184px;
+        }
+        #footer-right img{
+            width: 115px;
+            height: 115px;
+            margin-left: 250px;
+        }
+        #footer-right a,p{
+            width: 135px;
+            height: 36px;
+            display: block;
+            font-size: 13px;
+            text-align: center;
+            line-height: 36px;
+            color: gray;
+            margin-left: 240px;
+        }
+        #footer-right #sj{
+            width: 30px;
+            height: 30px;
+            background: url(qqq/footer0.png) no-repeat  -0px -0px;
+            margin-left: 290px;
+        }
+        #footer-right #wx{
+            width: 30px;
+            height: 30px;
+            background: url(qqq/footer0.png) no-repeat  -35px -0px;
+            margin-left: 290px;
+        }
+        #footer-right #wb{
+            width: 30px;
+            height: 30px;
+            background: url(qqq/footer0.png) no-repeat  -74px -0px;
+            margin-left: 290px;
+        }
+        #footer-down{
+            height: 153px;
+        }
+        #footer-down li{
+            float: left;
+            margin-top: 50px;
+        }
+        #fleft1 img{
+            width: 116px;
+            height: 48px;
+        }
+        .fright1 p{
+            width: 509px;
+            height: 22px;
+            font-size: 12px;
+            color: gray;
+            /* 	float: left;*/
+        }
+        .fright1 a{
+            color: gray;
+        }
+        .fright1 a:hover{
+            color: #33CCCC;
+        }
+        /************footer结束************/
+    </style>
+</head>
+<body>
+<div id="header">
+    <div id="choose">
+        <ul>
+            <li class="language"><a href="">简体中文</a></li>
+            <li class="language"><a href="">繁体中文</a></li>
+            <li class="language"><a href="">English</a></li>
+        </ul>
+        <p><a href="">全球服务</a></p>
+    </div>
+</div>
+<div id="logo">
+    <div id="l-left"><a href="#"><img src="qqq/logo1.png" alt="Logo"/></a>
+        <h2>网上银行</h2>
+        <p id="l-left1">客服电话：90909不0</p>
+    </div>
+</div>
+<div id="mid">
+    <h2>账户明细</h2>
+    <div id="mid-l">
+        <div class="mid1">
+        <a class="input" href="#">账户列表：</a>
+        <select>
+            <option value="">中国银行</option>
+            <option value="">中国工商银行</option>
+            <option value="">中国建设银行</option>
+            <option value="">中国农业银行</option>
+            <option value="">邮政储蓄银行</option>
+            <option value="">哈尔滨银行</option>
+            <option value="">光大银行</option>
+            <option value="">招商银行</option>
+            <option value="">浦发银行</option>
+            <option value="">平安银行</option>
+            <option value="">广发银行</option>
+            <option value="">兴业银行</option>
+        </select>
+    </div>
+        <div class="mid1">
+            <a class="input" href="#">子账户列表：</a>
+            <select>
+                <option value="">中国银行</option>
+                <option value="">中国工商银行</option>
+                <option value="">中国建设银行</option>
+                <option value="">中国农业银行</option>
+                <option value="">邮政储蓄银行</option>
+                <option value="">哈尔滨银行</option>
+                <option value="">光大银行</option>
+                <option value="">招商银行</option>
+                <option value="">浦发银行</option>
+                <option value="">平安银行</option>
+                <option value="">广发银行</option>
+                <option value="">兴业银行</option>
+            </select>
+        </div>
+        <div class="mid1">
+            起止日期：<input type="text"/>
+            <input type="text"/>
+        </div>
+        <div class="mid1">
+            <button>确认</button>
+            <button>取消</button>
+        </div>
+    </div>
+    <div id="mid-r">
+        <ul>
+            <li>记账日</li>
+            <li>交易时间</li>
+            <li>支出</li>
+            <li>收入</li>
+            <li>账户余额</li>
+        </ul>
+    </div>
+</div>
+<div id="footer">
+    <div id="footer-top">
+        <div id="footer-left">
+            <div id="footer-left1">
+                <h2>银行帮助</h2>
+                <ul>
+                    <li><a href="#">安卓 APP下载</a></li>
+                    <li><a href="#">IOS APP下载</a></li>
+                    <li><a href="#">APP助手使用教程</a></li>
+                    <li><a href="#">网上银行软件教程</a></li>
+                </ul>
+            </div>
+            <div id="footer-left2">
+                <h2>使用规则</h2>
+                <ul>
+                    <li><a href="#">用户行为准则</a></li>
+                    <li><a href="#">不良信息投诉举报</a></li>
+                    <li><a href="#">版权声明及投诉流程</a></li>
+                    <li><a href="#">内容管理及处置条例</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer-right">
+            <ul>
+                <li><div id="sj"></div><img src="qqq/footer1.png" alt="">
+                    <p>手机版</p>
+                </li>
+                <li><div id="wx"></div><img src="qqq/footer2.png" alt="">
+                    <p>微信：关羽</p>
+                </li>
+                <li><div id="wb"></div><img src="qqq/footer3.png" alt="">
+                    <a href="#">网上银行官方微博</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer-down">
+        <ul>
+            <li id="fleft1"><p><img src="qqq/logo2.png" alt=""></p></li>
+            <li class="fright1"><p>啧ICP备00000000号 | <a href="#">啧网文[2016]1111-C17号 </a>| <a href="#">啧公网安备 6666666666666号</a></p></li>
+            <li class="fright1"><p>哈尔滨熊猫网上银行 | 地址: 黑龙江大学 | 客服电话：90909不0</p></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

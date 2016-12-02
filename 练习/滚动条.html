@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>滚动条</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            width: 500px;
+            height: 480px;
+            background: #00FFcc;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #content{
+            width: 480px;
+            background: #777;
+            float: left;
+            font-size: 40px;
+            position: relative;
+        }
+        #scroll-bar{
+            width: 20px;
+            height: 480px;
+            background: orangered;
+            float: left;
+            position: relative;
+        }
+        #scroll-btn{
+            width: 20px;
+            height: 30px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">1.封皮——题目页(Title)：要求使用统一规定的封皮，封皮上书写论文题目。题目应该简短、明确，通过标题能大致了解文章的内容及研究范畴。题目不超过15个实词。(封皮上论文题目应居中书写，为Times New Roman字体，二号字加粗)
+        2.第二页——为教师评语页。教师批阅论文后须根据评分标准在第二页给出简短中文或英文评语并签字。此页须由学生打印，与论文一起装订。
+        3.第三页—— 英文摘要（Abstract）：扼要叙述本文的主要内容（main idea）、特点。第三页不用写论文题目。英文摘要和题纲均为标题小二号字加粗，正文五号字。所有正文中的标题均需居左对齐。行间距设置为1.5倍，段与段之间空一行。</div>
+    <div id="scroll-bar">
+        <span id="scroll-btn"></span>
+    </div>
+</div>
+<script>
+    var oBtn = document.getElementById("scroll-btn");
+    var oBar = document.getElementById("scroll-bar");
+    var oContent = document.getElementById("content");
+    var oContainer = document.getElementById("container");
+    oBtn.onmousedown = function(e){
+        e = e || window.event;
+        var top = e.clientY - oBtn.offsetTop;
+        document.onmousemove = function(e){
+            e = e || window.event;
+            var iTop = e.clientY - top;
+            if(iTop < 0){
+                iTop = 0;
+            }else if(iTop  > oBar.offsetHeight - oBtn.offsetHeight){
+                iTop = oBar.offsetHeight - oBtn.offsetHeight;
+            }
+            oBtn.style.top = iTop + "px";
+            var oZ = iTop / (oBar.offsetHeight - oBtn.offsetHeight);
+            oContent.style.top = -oZ*(oContent.offsetHeight - oContainer.offsetHeight) + "px";
+            return false;
+        };
+        document.onmouseup = function(){
+            document.onmousemove = null;
+        }
+
+    }
+</script>
+</body>
+</html>

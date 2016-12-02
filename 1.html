@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    (function(){
+        function test(m,n){
+            for(var i=m;i<=n; i++){
+                if(demo(i)){
+                    console.log(i);
+                }
+            }
+        }
+        function demo(a){
+            var b = a;
+            a = a + "";
+            var c = "";
+            for(var i=0; i< a.length; i++){
+                c += a.charAt(a.length-i-1);
+            }
+            if(b == c){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        test(10,1000);
+    })();
+</script>
+</body>
+</html>

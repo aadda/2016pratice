@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #left-box{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            float: left;
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            opacity: 0.5;
+            filter: alpha(opacity = 50);
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        #right-box{
+            width: 400px;
+            height: 400px;
+            float: left;
+            overflow: hidden;
+            display: none;
+        }
+        #right-box img{
+            position: relative;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <div id="left-box">
+            <img src="imges/1.jpg" alt=""/>
+            <div id="drag"></div>
+        </div>
+        <div id="right-box">
+            <img id="big-img" src="imges/2.jpg" alt=""/>
+        </div>
+    </div>
+    <script>
+        var oDrag = document.getElementById("drag");
+        var oLeftBox = document.getElementById("left-box");
+        var oRightBox = document.getElementById("right-box");
+        var oImg = document.getElementById("big-img");
+        oLeftBox.onmouseover = function(){
+            oDrag.style.display = "block";
+            oRightBox.style.display = "block";
+        };
+        oLeftBox.onmousemove = function(e){
+            e = e || window.event;
+            var iLeft = e.clientX - oDrag.offsetWidth/2;
+            var iTop = e.clientY - oDrag.offsetHeight/2;
+            if(iLeft < 0){
+                iLeft = 0;
+            }else if(iLeft > oLeftBox.offsetWidth - oDrag.offsetWidth){
+                iLeft = oLeftBox.offsetWidth - oDrag.offsetWidth;
+            }
+            if(iTop < 0){
+                iTop = 0;
+            }else if(iTop > oLeftBox.offsetHeight - oDrag.offsetHeight){
+                iTop = oLeftBox.offsetHeight - oDrag.offsetHeight;
+            }
+            oDrag.style.left = iLeft + "px";
+            oDrag.style.top = iTop + "px";
+            var oZ = oDrag.offsetTop / (oLeftBox.offsetHeight - oDrag.offsetHeight);
+            oImg.style.top = -oZ*(oImg.offsetHeight - oRightBox.offsetHeight) + "px";
+            var oP = oDrag.offsetLeft / (oLeftBox.offsetWidth - oDrag.offsetWidth);
+            oImg.style.left = -oP*(oImg.offsetWidth - oRightBox.offsetWidth) + "px";
+            return false;
+        };
+        oLeftBox.onmouseout = function(){
+            oDrag.style.display = "none";
+            oRightBox.style.display = "none";
+        }
+    </script>
+</body>
+</html>
