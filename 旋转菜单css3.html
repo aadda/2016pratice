@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right: 100px;
+            bottom: 20px;
+        }
+        #container img{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-transition: transform 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img class="s1" src="img1/close.png" alt=""/>
+        <img class="s1" src="img1/full.png" alt=""/>
+        <img class="s1" src="img1/open.png" alt=""/>
+        <img class="s1" src="img1/prev.png" alt=""/>
+        <img class="s1" src="img1/refresh.png" alt=""/>
+        <img id="home" src="img1/home.png" alt=""/>
+    </div>
+    <script>
+        var oHome = document.getElementById("home");
+        var aSi = document.getElementsByClassName("s1");
+        var iNow = false;
+        oHome.onclick = function(){
+            if(!iNow){
+                for(var i=0; i<aSi.length; i++){
+                    var x = -180*Math.sin(22.5*i*Math.PI/180);
+                    var y = -180*Math.cos(22.5*i*Math.PI/180);
+                    aSi[i].style.webkitTransform = "translate("+x+"px,"+y+"px) rotate(360deg)";
+                }
+                this.style.webkitTransform = "rotateZ(360deg)";
+            }else{
+                for(var i=0; i<aSi.length; i++){
+
+                    aSi[i].style.webkitTransitionDuration = "1s";
+
+                    aSi[i].style.webkitTransform = "translate(0,0) rotate(0)";
+                }
+                this.style.webkitTransform = "rotateZ(0)";
+            }
+            iNow = !iNow;
+        };
+        for(var i=0; i<aSi.length; i++){
+                aSi[i].isClick = false;
+                aSi[i].onclick = function(){
+
+                    if(!this.isClick){
+                        this.isClick = true;
+                        var _this = this;
+                        var cT = this.style.webkitTransform;
+
+                        setTimeout(function(){
+                            _this.style.webkitTransform = cT;
+                            _this.isClick = false;
+                        },300);
+                        this.style.webkitTransitionDuration = "0.3s";
+                        this.style.webkitTransform = cT + "scale(1.5)";
+                    }
+                }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>立方体</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: #000;
+            -webkit-perspective: 800px;
+        }
+        #content{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: 200px auto;
+            -webkit-transform-style: preserve-3d;
+            animation: run 2s linear infinite;
+        }
+        @-webkit-keyframes run {
+            0%{
+
+            }
+            /*50%{
+                -webkit-transform: rotate3d(10,18,20,180deg);
+            }*/
+            100%{
+                /*-webkit-transform: rotate3d(10,180,200,180deg);*/
+                -webkit-transform: rotateY(360deg);
+            }
+        }
+        #content div{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-align: center;
+            line-height: 400px;
+            font-size: 100px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 20px;
+        }
+        #d1{
+            -webkit-transform: rotateX(90deg) translateZ(200px);
+        }
+        #d2{
+            -webkit-transform: translateZ(200px);
+            z-index:1;
+        }
+        #d3{
+            -webkit-transform: rotateY(90deg) translateZ(200px);
+        }
+        #d4{
+            -webkit-transform:rotateY(180deg) translateZ(200px);
+
+        }
+        #d5{
+            -webkit-transform: rotateY(-90deg) translateZ(200px);
+        }
+        #d6{
+            -webkit-transform: rotateX(-90deg) translateZ(200px);
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="d1">1</div>
+        <div id="d2">2</div>
+        <div id="d3">3</div>
+        <div id="d4">4</div>
+        <div id="d5">5</div>
+        <div id="d6">6</div>
+    </div>
+</body>
+</html>

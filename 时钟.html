@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #close{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            border-radius: 50%;
+            position: relative;
+        }
+        li{
+            width: 2px;
+            height: 4px;
+            background: #000;
+            position: absolute;
+            left: 99px;
+            top: 0;
+            -webkit-transform-origin: center 100px;
+        }
+        li:nth-child(5n+1){
+            height: 8px;
+        }
+        #hour{
+            width: 6px;
+            height: 35px;
+            background: #000;
+            position: absolute;
+            left: 97px;
+            top: 65px;
+            -webkit-transform-origin: center 100%;
+        }
+        #minute{
+            width: 4px;
+            height: 45px;
+            background: orange;
+            position: absolute;
+            left: 98px;
+            top: 55px;
+            -webkit-transform-origin: center 100%;
+        }
+        #second{
+            width: 2px;
+            height: 55px;
+            background: red;
+            position: absolute;
+            left: 99px;
+            top: 45px;
+            -webkit-transform-origin: center 100%;
+            -webkit-transform: rotate(6deg);
+        }
+        #point{
+            width: 7px;
+            height: 7px;
+            border: 1px solid #00FFcc;
+            border-radius: 50%;
+            background: #00FFcc;
+            position: absolute;
+            left: 95px;
+            top: 95px;
+        }
+        #now{
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border: 3px solid #00FFcc;
+            color: #00FFcc;
+            position: absolute;
+            top: 250px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="close">
+        <ul id="content">
+        </ul>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <div id="point"></div>
+        <div id="now"></div>
+    </div>
+    <script>
+        var oContent = document.getElementById("content");
+        var oHour = document.getElementById("hour"),
+                oMinute = document.getElementById("minute"),
+                oSecond = document.getElementById("second");
+        var oNow = document.getElementById("now");
+        var html = "";
+        for(var i=0; i<60; i++){
+            html += '<li style = "-webkit-transform: rotate('+i*6+'deg)"></li>';
+        }
+        oContent.innerHTML = html;
+        function run(){
+         var date = new Date();
+            var iSecond = date.getSeconds();
+            var iMinute = date.getMinutes();
+            var iHour = date.getHours() + iMinute/60;
+
+
+            oSecond.style.webkitTransform = 'rotate('+iSecond*6+'deg)';
+            oMinute.style.webkitTransform = 'rotate('+iMinute*6+'deg)';
+            oHour.style.webkitTransform = 'rotate('+iHour*30+'deg)';
+            oNow.innerHTML = '当前时间:'+date.getHours()+'.'+iMinute+'.'+iSecond;
+        }
+        run();
+        setInterval(function(){
+            run();
+        },1000);
+    </script>
+</body>
+</html>

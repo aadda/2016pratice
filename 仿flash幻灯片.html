@@ -143,6 +143,7 @@
     </div>
     <script src="jslib.js"></script>
     <script>
+        (function(){
         var oPrev = document.getElementById("prev"),
                 oNext = document.getElementById("next");
         var oPrev1 = document.getElementById("prev-btn"),
@@ -165,7 +166,7 @@
             animate(this,{opacity:0});
         };
         oNext1.onclick = function(){
-            console.log(iNow);
+//            console.log(iNow);
             iNow++;
             if(iNow == aLi.length){
                 iNow = 0;
@@ -215,6 +216,7 @@
                     changeImg(this.index);
                 }
             }
+        })();
     </script>
 </body>
 </html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>5个圈</title>
+    <style>
+        *{
+            margin: 0;
+
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        div::after{
+            content: "";
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        #blue{
+            left: 0;
+            top: 0;
+            border: 10px solid blue;
+        }
+        #blue::after{
+            border: 10px solid blue;
+            border-bottom-color: transparent;
+        }
+        #green{
+            left: 230px;
+            top: 0;
+            border: 10px solid green;
+        }
+        #green::after{
+            border: 10px solid green;
+            border-left-color: transparent;
+        }
+        #red{
+            left: 460px;
+            top: 0;
+            border: 10px solid red;
+        }
+        #red::after{
+            border: 10px solid red;
+            border-left-color: transparent;
+        }
+        #yellow{
+            left: 115px;
+            top: 110px;
+            border: 10px solid yellow;
+        }
+        #yellow::after{
+            border: 10px solid yellow;
+            border-right-color: transparent;
+            border-top-color: transparent;
+        }
+        #black{
+            left: 345px;
+            top: 110px;
+            border: 10px solid black;
+        }
+        #black::after{
+            border: 10px solid black;
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="blue"></div>
+    <div id="green"></div>
+    <div id="red"></div>
+    <div id="yellow"></div>
+    <div id="black"></div>
+</body>
+</html>

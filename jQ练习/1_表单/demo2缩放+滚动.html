@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	* { margin:0; padding:0;font:normal 12px/17px Arial; }
+	.msg {width:300px; margin:100px; }
+	.msg_caption { width:100%; overflow:hidden; margin-bottom:1px;}
+	.msg_caption span { display:block; float:left; margin:0 2px; padding:4px 10px; background:#898989; cursor:pointer;color:white; }
+	.msg textarea{ width:300px; height:80px;height:100px;border:1px solid #000;}
+</style>
+</head>
+<body>
+	<form action="" method="post">
+	<div class="msg">
+	<div class="msg_caption">
+		<span class="bigger" >放大</span>
+		<span class="smaller" >缩小</span>
+		<span class="up" >向上</span>
+		<span class="down" >向下</span>
+	</div>
+	<div>
+		<textarea id="comment" rows="8" cols="20">多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化..多行文本框高度变化.多行文本框高度变化.多行文本框高度变化..多行文本框高度变化.多行文本框高度变化.多行文本框高度变化..多行文本框高度变化.多行文本框高度变化.多行文本框高度变化..多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化...多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.</textarea>
+		</div>
+	</div>
+	</form>
+	<script src="../../jQ/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			var $comment = $('#comment');
+			$('.bigger').on('click',function(){
+				if(!$comment.is(":animated")){
+					if($comment.height() < 500){
+						$comment.animate({ height : "+=150" },400);	
+					}
+					$comment.css('font-size','+=2');
+				}
+			});
+			$('.smaller').on('click',function(){
+				if(!$comment.is(":animated")){
+					if($comment.height() > 150){
+						$comment.animate({ height : "-=150" },400);	
+					}
+					$comment.css('font-size','-=2');
+				}
+			});
+			$('.up').on('click',function(){
+				if(!$comment.is(":animated")){
+					$comment.animate({ scrollTop : "-=50" },400);	
+				}
+			});
+			$('.down').on('click',function(){
+				if(!$comment.is(":animated")){
+					$comment.animate({ scrollTop : "+=50" },400);	
+				}
+			});
+		});
+
+	</script>
+</body>
+</html>

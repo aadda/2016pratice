@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">
+		123
+	</div>
+	<script src="../jQ/jquery-1.12.4.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			
+			console.log($('#div1').html());
+		})
+		
+		$(document).on('keydown',function(event){
+			alert(event.which);
+		})
+	</script>
+</body>
+</html>

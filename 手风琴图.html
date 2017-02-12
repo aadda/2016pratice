@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>手风琴</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 600px;
+            height: 300px;
+            background: #000;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width: 600px;
+            height: 300px;
+        }
+        #content img{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+        }
+        #arrow li{
+            width: 120px;
+            height: 30px;
+            background: #555;
+            opacity: 0.6;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <img src="img1/1.jpg" alt=""/>
+            <img src="img1/2.jpg" alt=""/>
+            <img src="img1/3.jpg" alt=""/>
+            <img src="img1/4.jpg" alt=""/>
+            <img src="img1/5.jpg" alt=""/>
+        </div>
+        <div id="arrow">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oContent = document.getElementById("content");
+        var aImg = oContent.getElementsByTagName("img");
+        var oArrow = document.getElementById("arrow");
+        var aLi = oArrow.getElementsByTagName("li");
+        for(var i=0;i<aImg.length; i++){
+            aImg[i].index = i;
+            aLi[i].style.left = aLi[0].offsetWidth*i +"px";
+            aImg[i].style.left = aLi[0].offsetWidth*i +"px";
+            aImg[i].onmouseover = function(){
+                for(var i=0; i<aImg.length; i++){
+                    if(i<=this.index){
+                        aImg[i].style.left = (aImg[this.index].offsetLeft-this.index*50) +"px";
+                    }else{
+                        aImg[i].style.left = (aImg[this.index].offsetLeft+this.index*50) +"px";
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

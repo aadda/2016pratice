@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #stg{
+            width: 1000px;
+            height: 400px;
+            background: #ccc;
+            box-shadow: 0 0 3px 3px rgba(0,0,0,0.5);
+            margin: 50px auto;
+            overflow: hidden;
+            -webkit-perspective: 800px;
+            -webkit-perspective-origin: center -40%;
+        }
+        #content{
+            width: 128px;
+            height: 120px;
+            /*background: red;*/
+            margin: 100px auto;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transition: 1s linear;
+        }
+        #content img{
+            -webkit-transform-origin: center 100%;
+            width: 128px;
+            height: 120px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-transition: 1s linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="stg">
+        <div id="content">
+
+        </div>
+    </div>
+    <script>
+        var oContent = document.getElementById("content");
+        var html = "";
+        var x = 64/Math.tan(20*(Math.PI/180))+20;
+        for(var i=0; i<9; i++){
+            html += "<img src='img1/"+(i+1)+".jpg'>";
+        }
+        var iNow = 0;
+        oContent.innerHTML = html;
+        oContent.onclick = function(){
+            iNow++;
+            oContent.style.transform = "rotateY("+iNow*40+"deg)";
+        };
+        var aImg = oContent.getElementsByTagName("img");
+        var index = 9;
+        var timer = setInterval(function(){
+            index--;
+            if(index < 0){
+                clearInterval(timer);
+            }else{
+
+                aImg[index].style.webkitTransform = "rotateY("+(-index*40)+"deg) translateZ("+x+"px)";
+            }
+        },100);
+        var s = setInterval(function(){
+            oContent.onclick();
+        },1000);
+        oContent.onmouseover = function(){
+            clearInterval(s);
+        };
+        oContent.onmouseout = function(){
+          s = setInterval(function(){
+              oContent.onclick();
+          },1000)
+        };
+       /* (function(index){
+            闭包
+            var j = 8-index;
+            aImg[index].style.webkitTransform = "rotateY("+(-index*40)+"deg) translateZ("+x+"px)";
+        })(i)*/
+    </script>
+</body>
+</html>
