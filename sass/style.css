@@ -1,0 +1,35 @@
+body { width: 100%; }
+body #container { background: #eee; }
+body #container #content { background: #fff; }
+body .main { height: 200px; color: #eee; font-size: 20px; padding: 10px 0 20px 0; }
+body .main:hover { color: #ccc; }
+body .red { background: url("img/red.jpg") 0 0 no-repeat; }
+
+.header { width: 200px; height: 300px; border: 5px solid #888; box-shadow: 2px 3px 3px #eee; border: 2px solid #fff; }
+
+.aa, .bb { -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; }
+
+.cc { -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; }
+
+.bb { width: 390px; height: 200px; }
+
+.bb { width: 100px; }
+
+.dd { width: 500px; }
+
+/*  .dd end*/
+.ee1 { width: 20px; }
+
+.ee2 { width: 40px; }
+
+.ee3 { width: 60px; }
+
+.ee4 { width: 80px; }
+
+.error-box { background: url("img/error.jpg"); }
+
+.right-box { background: url("img/right.jpg"); }
+
+.warning-box { background: url("img/warning.jpg"); }
+
+/*# sourceMappingURL=style.css.map */

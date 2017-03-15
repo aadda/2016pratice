@@ -1,0 +1,35 @@
+.connect{
+	background: #000;
+	opacity: 0.5;
+	filter: alpha(opacity:50);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.box{
+	background: #f00;
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -150px;
+}
+.box-title{
+	height: 40px;
+	background: #eee;
+	line-height: 40px;
+}
+.title{
+	float: left;
+}
+.chose{
+	float: right;
+	cursor: pointer;
+}
+.chose:hover{
+	color: blue;
+}
